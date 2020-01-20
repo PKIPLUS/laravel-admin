@@ -58,7 +58,6 @@
             "aliases": {
                 "Admin": "Encore\\Admin\\Facades\\Admin"
             }
-
         }
     }
 }
