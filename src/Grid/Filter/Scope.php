@@ -84,8 +84,9 @@ class Scope implements Renderable
     public function asDefault()
     {
         if (!request()->input('_scope_')) {
-            request()->merge(['_scope_' => $this->key,]);
+            request()->merge(['_scope_' => $this->key]);
         }
+
         return $this;
     }
 
