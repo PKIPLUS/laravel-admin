@@ -597,7 +597,7 @@ $('#has-many-{$this->column}').on('click', '.add', function () {
 });
 
 $('#has-many-{$this->column}').on('click', '.remove', function () {
-    var first_input_name = $(this).closest('.has-many-{$this->column}-form').find('input:first').attr('name');
+    var first_input_name = $(this).closest('.has-many-{$this->column}-form').find('input[name]:first').attr('name');
     if (first_input_name.match('{$this->column}\\\[new_')) {
         $(this).closest('.has-many-{$this->column}-form').remove();
     } else {
@@ -662,7 +662,7 @@ EOT;
 
         $this->setupScript($script);
 
-        return parent::render()->with([
+        return parent::fieldRender([
             'forms'        => $this->buildRelatedForms(),
             'template'     => $template,
             'relationName' => $this->relationName,
@@ -719,7 +719,7 @@ EOT;
         // specify a view to render.
         $this->view = $this->views[$this->viewMode];
 
-        return parent::render()->with([
+        return parent::fieldRender([
             'headers'      => $headers,
             'forms'        => $this->buildRelatedForms(),
             'template'     => $template,
