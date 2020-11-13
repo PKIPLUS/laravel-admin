@@ -130,7 +130,7 @@ abstract class Action implements Renderable
     public function selector($prefix)
     {
         if (is_null($this->selector)) {
-            return static::makeSelector(get_called_class(), $prefix);
+            return static::makeSelector(get_called_class().spl_object_id($this), $prefix);
         }
 
         return $this->selector;
@@ -358,8 +358,8 @@ var actionResolver = function (data) {
                     window.location = then.value;
                 }
 
-                if (then.action == 'oepn') {
-                    window.open(this.value, '_blank');
+                if (then.action == 'open') {
+                    window.open(then.value, '_blank');
                 }
             };
 
